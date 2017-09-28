@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Sube tu información
+            </div>
+            <div class="panel-body">
+                <center>
+                    <span>
+                        Buscar archivo
+                        <input type="file" name="file" />
+                    </span>
+                </center>
+                <hr />
+                <center><input type="submit" class="btn btn-lg btn-primary" value="Subir información" onclick="$('#cargando').modal('show')"/></center>
+                <br />
+                @if (ViewBag.Exito == true)
+                {
+                    <div class="alert alert-success">
+                        <center><strong>¡La carga tuvo éxito!</strong> @Html.ActionLink("¿Quieres ver los resultados?", "Exito")</center>
+                    </div>
+                }
+                @if (ViewBag.Exito == false)
+                {
+                    <div class="alert alert-warning">
+                        <center><strong>¡Ha ocurrido un problema con la carga!</strong> Puedes intertarlo de nuevo.</center>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+
+    <div class="modal fade" id="cargando" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cargando...</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Esto puede tardar un poco si es un archivo que contiene gran cantidad de datos. La carga depende de la velocidad de tu conexión a internet</p>
+                    <br />
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+</div>

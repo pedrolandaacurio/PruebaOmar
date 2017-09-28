@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <center>
+            <h2 class="text-danger">Parece que ha ocurrido un error en tu carga</h2>
+            <hr />
+            @Html.ActionLink("¿Deseas intentarlo de nuevo?", "Index", "Index", new { @class = "btn btn-warning btn-lg" })
+        </center>
+    </div>
+</body>
+</html>
